@@ -1,0 +1,249 @@
+/* Figma Container Component Styles */
+
+.css-grtgjx {
+  position: absolute;
+  transform: translate(
+    calc(-50% + var(--transform-inner-width) / 2),
+    calc(-50% + var(--transform-inner-height) / 2)
+  );
+}
+
+.css-emgsdr,
+.css-91er4h,
+.css-btfiux,
+.css-u42l67,
+.css-xeqx4p,
+.css-p9qxs7 {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-5aehki,
+.css-3bmyh0,
+.css-4iidto,
+.css-dzfofm,
+.css-gum8pa {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-lep7rq {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-nyt1mh {
+  transform: translate(-50%, -50%);
+}
+
+.css-ayg824 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: orbit 4s linear infinite;
+}
+
+.css-lwrx1w {
+  transform-origin: center;
+  animation-delay: 0s;
+}
+
+.css-haiotk {
+  transform-origin: center;
+  animation-delay: -0.5s;
+}
+
+.css-wbo1hy {
+  transform-origin: center;
+  animation-delay: -1s;
+}
+
+.css-w2z3mg {
+  transform-origin: center;
+  animation-delay: -1.5s;
+}
+
+.css-7ja1lm {
+  transform-origin: center;
+  animation-delay: -2s;
+}
+
+.css-orrgmn {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-gkvak6 {
+  position: absolute;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.css-jl4fnd {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-w49tsa {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-9nkc2o {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.css-jfofm {
+  position: relative;
+}
+
+.css-paq0kv {
+  position: absolute;
+}
+
+.css-q4i36z {
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(57, 180, 255, 0.5), transparent);
+  transform: translateX(-50%);
+}
+
+.css-xh9m87 {
+  border-radius: 50%;
+}
+
+.css-uld6v0 {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.css-m23a2h {
+  position: absolute;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+}
+
+.css-s3s1qq {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.css-4f712n {
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.css-8hhw9a {
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.css-3zs5uo {
+  position: absolute;
+}
+
+.css-vxfvp6 {
+  transform: translate(-50%, -50%);
+}
+
+.css-roiesn {
+  position: absolute;
+}
+
+.css-4r7yxk {
+  position: absolute;
+  text-align: center;
+}
+
+.css-8hpx75 {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+.css-8zrmd9 {
+  position: absolute;
+}
+
+.css-8zr56v {
+  margin: 0;
+  color: #39beff;
+}
+
+.css-x78r3n {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}
+
+.css-iy47pr {
+  animation: textFloat 3s ease-in-out infinite;
+}
+
+.css-knulpn {
+  opacity: 0.8;
+}
+
+.css-wc1msa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.css-wfwx8q {
+  position: absolute;
+}
+
+.css-vf8mzy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes textFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
