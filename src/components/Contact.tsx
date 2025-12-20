@@ -11,13 +11,40 @@ export function Contact() {
     email: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to a backend
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    setIsLoading(true);
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwvbrrj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatusMessage("Thank you for your message! I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatusMessage(""), 5000);
+      } else {
+        setStatusMessage("Error: Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      setStatusMessage("Error: Failed to send email. Please try again.");
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -108,9 +135,18 @@ export function Contact() {
                     className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-500 focus:border-purple-400"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 disabled:opacity-50"
+                >
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
+                {statusMessage && (
+                  <p className={`text-sm ${statusMessage.includes("Error") ? "text-red-400" : "text-green-400"}`}>
+                    {statusMessage}
+                  </p>
+                )}
               </form>
             </CardContent>
           </Card>
