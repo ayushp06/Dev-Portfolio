@@ -13,6 +13,7 @@ export function Contact() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
+  const formspreeId = import.meta.env.VITE_FORMSPREE_FORM_ID as string | undefined;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,13 +21,17 @@ export function Contact() {
     setStatusMessage("");
 
     try {
+      if (!formspreeId) {
+        setStatusMessage("Form configuration missing. Set VITE_FORMSPREE_FORM_ID.");
+        return;
+      }
       // Formspree works best with multipart FormData and an Accept header
       const payload = new FormData();
       payload.append("name", formData.name);
       payload.append("email", formData.email);
       payload.append("message", formData.message);
 
-      const response = await fetch("https://formspree.io/f/xpwvbrrj", {
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: "POST",
         headers: {
           Accept: "application/json",
