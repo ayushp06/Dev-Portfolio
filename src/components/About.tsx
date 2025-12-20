@@ -1,22 +1,15 @@
-import { Code2, Rocket, Users } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 
 export function About() {
   const highlights = [
     {
-      icon: Code2,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable, and well-documented code that stands the test of time."
+      image: "/images/DSC02188.JPG"
     },
     {
-      icon: Rocket,
-      title: "Fast Learner",
-      description: "Quick to adapt to new technologies and frameworks, always staying current with industry trends."
+      image: "/images/IMG_4351.JPG"
     },
     {
-      icon: Users,
-      title: "Team Player",
-      description: "Collaborative mindset with strong communication skills and experience in agile environments."
+      image: "/images/IMG_7057.jpg"
     }
   ];
 
@@ -41,16 +34,18 @@ export function About() {
         
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {highlights.map((item, index) => {
-            const Icon = item.icon;
             return (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20 transition-all backdrop-blur-sm">
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20 transition-all backdrop-blur-sm overflow-hidden">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center mb-4">
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center mb-4 overflow-hidden" style={{ width: '400px', height: '400px' }}>
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full"
+                        style={{ objectFit: 'cover', objectPosition: 'center' }}
+                      />
                     </div>
-                    <h3 className="text-xl mb-3 text-white">{item.title}</h3>
-                    <p className="text-slate-400">{item.description}</p>
                   </div>
                 </CardContent>
               </Card>

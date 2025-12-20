@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-6">
           <div className="flex gap-6">
             <a 
-              href="https://github.com" 
+              href="https://github.com/ayushp06" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-purple-400 transition-colors"
@@ -17,7 +17,7 @@ export function Footer() {
               <Github className="w-6 h-6" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/ayushpandejee/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-purple-400 transition-colors"
@@ -25,16 +25,18 @@ export function Footer() {
               <Linkedin className="w-6 h-6" />
             </a>
             <a 
-              href="mailto:your.email@example.com" 
+              href="https://www.instagram.com/ayush.pandejee/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-purple-400 transition-colors"
             >
-              <Mail className="w-6 h-6" />
+              <Instagram className="w-6 h-6" />
             </a>
           </div>
           
           <div className="text-center">
-            <p className="flex items-center gap-2 justify-center">
-              Made with <Heart className="w-4 h-4 text-purple-500 fill-current" /> by Your Name
+            <p className="justify-center">
+              Made By Ayush Pandejee
             </p>
             <p className="text-sm text-slate-500 mt-2">
               © {currentYear} All rights reserved.

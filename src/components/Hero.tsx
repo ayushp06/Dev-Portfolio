@@ -11,14 +11,13 @@ export function Hero() {
       <div className="container mx-auto px-4 z-10 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-5xl md:text-7xl mb-6 text-white">
-            Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Your Name</span>
+            Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Ayush Pandejee</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8">
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">Software Engineer & Full-Stack Developer</span>
+            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">Aerospace Engineer & Developer</span>
           </p>
           <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto">
-            I build exceptional digital experiences that combine elegant code with intuitive design. 
-            Passionate about creating scalable solutions and exploring new technologies.
+            I’m an Aerospace Engineering student at Penn State pursuing a minor in Information Sciences & Technology. I'm driven by a passion for aerospace systems, AI, and automation for smarter and more efficient technologies for the next generation of space exploration.
           </p>
           
           <div className="flex gap-4 justify-center mb-12">
@@ -40,13 +39,13 @@ export function Hero() {
           </div>
           
           <div className="flex gap-6 justify-center">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
+            <a href="https://github.com/ayushp06" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
               <Github className="w-6 h-6" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
+            <a href="https://www.linkedin.com/in/ayushpandejee/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
+            <a href="https://www.instagram.com/ayush.pandejee/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-purple-400 transition-colors">
               <Instagram className="w-6 h-6" />
             </a>
           </div>

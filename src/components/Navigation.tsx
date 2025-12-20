@@ -22,8 +22,7 @@ export function Navigation() {
   const navLinks = [
     { label: "About", id: "about" },
     { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" },
-    { label: "Contact", id: "contact" }
+    { label: "Projects", id: "projects" }
   ];
 
   return (
@@ -36,7 +35,7 @@ export function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent hover:from-purple-300 hover:to-blue-300 transition-all"
           >
-            &lt;Portfolio /&gt;
+            Home
           </button>
           
           {/* Desktop Navigation */}

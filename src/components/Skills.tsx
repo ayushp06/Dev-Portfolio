@@ -4,19 +4,15 @@ export function Skills() {
   const skillCategories = [
     {
       category: "Languages",
-      skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"]
+      skills: ["Python", "C++", "TypeScript", "HTML/CSS", "JavaScript", "LaTeX"]
     },
     {
-      category: "Frontend",
-      skills: ["React", "Next.js", "Vue.js", "Tailwind CSS", "HTML5", "CSS3"]
+      category: "Technologies & Frameworks",
+      skills: ["Firebase", "Google Cloud OAuth", "MySQL", "Tailwind CSS", "React.js", "Node.js", "TensorFlow"]
     },
     {
-      category: "Backend",
-      skills: ["Node.js", "Express", "Django", "PostgreSQL", "MongoDB", "REST APIs"]
-    },
-    {
-      category: "Tools & DevOps",
-      skills: ["Git", "Docker", "AWS", "CI/CD", "Linux", "Kubernetes"]
+      category: "Software & Tools",
+      skills: ["ANSYS Mechanical", "SOLIDWORKS", "Fusion 360", "MATLAB", "ChassisSIM", "KiCAD"]
     }
   ];
 
@@ -27,23 +23,45 @@ export function Skills() {
           <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Skills & Technologies</span>
         </h2>
         
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-          {skillCategories.map((category, index) => (
-            <div key={index}>
-              <h3 className="text-2xl mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{category.category}</h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <Badge 
-                    key={skillIndex} 
-                    variant="secondary"
-                    className="text-base py-2 px-4 bg-slate-800/50 text-slate-200 hover:bg-slate-700 border border-slate-700 hover:border-purple-500/50 transition-all"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            {skillCategories.slice(0, 2).map((category, index) => (
+              <div key={index}>
+                <h3 className="text-2xl mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{category.category}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <Badge 
+                      key={skillIndex} 
+                      variant="secondary"
+                      className="text-base py-2 px-4 bg-slate-800/50 text-slate-200 hover:bg-slate-700 border border-slate-700 hover:border-purple-500/50 transition-all"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
+          <div className="flex justify-center">
+            <div className="text-center">
+              {skillCategories.slice(2).map((category, index) => (
+                <div key={index + 2}>
+                  <h3 className="text-2xl mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{category.category}</h3>
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    {category.skills.map((skill, skillIndex) => (
+                      <Badge 
+                        key={skillIndex} 
+                        variant="secondary"
+                        className="text-base py-2 px-4 bg-slate-800/50 text-slate-200 hover:bg-slate-700 border border-slate-700 hover:border-purple-500/50 transition-all"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
