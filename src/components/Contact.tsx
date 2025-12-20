@@ -20,16 +20,18 @@ export function Contact() {
     setStatusMessage("");
 
     try {
+      // Formspree works best with multipart FormData and an Accept header
+      const payload = new FormData();
+      payload.append("name", formData.name);
+      payload.append("email", formData.email);
+      payload.append("message", formData.message);
+
       const response = await fetch("https://formspree.io/f/xpwvbrrj", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        body: payload,
       });
 
       if (response.ok) {
@@ -37,7 +39,15 @@ export function Contact() {
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatusMessage(""), 5000);
       } else {
-        setStatusMessage("Error: Failed to send email. Please try again.");
+        // Surface Formspree's error detail when available
+        let errorText = "Error: Failed to send email. Please try again.";
+        try {
+          const data = await response.json();
+          if (data && data.errors && Array.isArray(data.errors) && data.errors.length) {
+            errorText = `Error: ${data.errors[0].message || errorText}`;
+          }
+        } catch {}
+        setStatusMessage(errorText);
       }
     } catch (error) {
       setStatusMessage("Error: Failed to send email. Please try again.");
@@ -69,20 +79,8 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white mb-1">Email</h4>
-                  <a href="mailto:your.email@example.com" className="text-slate-400 hover:text-purple-400 transition-colors">
-                    your.email@example.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-white mb-1">Phone</h4>
-                  <a href="tel:+1234567890" className="text-slate-400 hover:text-purple-400 transition-colors">
-                    +1 (234) 567-890
+                  <a href="mailto:apandejee006@yahoo.com" className="text-slate-400 hover:text-purple-400 transition-colors">
+                    apandejee006@yahoo.com
                   </a>
                 </div>
               </div>

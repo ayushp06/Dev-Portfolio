@@ -24,14 +24,14 @@ export function Skills() {
         </h2>
         
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 mb-12">
-            {skillCategories.slice(0, 2).map((category, index) => (
-              <div key={index}>
+          <div className="space-y-16 md:space-y-24">
+            {skillCategories.map((category, index) => (
+              <div key={index} className="text-center">
                 <h3 className="text-2xl mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{category.category}</h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 justify-center mb-8 md:mb-10">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
+                    <Badge
+                      key={skillIndex}
                       variant="secondary"
                       className="text-base py-2 px-4 bg-slate-800/50 text-slate-200 hover:bg-slate-700 border border-slate-700 hover:border-purple-500/50 transition-all"
                     >
@@ -41,26 +41,6 @@ export function Skills() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="flex justify-center">
-            <div className="text-center">
-              {skillCategories.slice(2).map((category, index) => (
-                <div key={index + 2}>
-                  <h3 className="text-2xl mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{category.category}</h3>
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge 
-                        key={skillIndex} 
-                        variant="secondary"
-                        className="text-base py-2 px-4 bg-slate-800/50 text-slate-200 hover:bg-slate-700 border border-slate-700 hover:border-purple-500/50 transition-all"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
