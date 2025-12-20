@@ -66,7 +66,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="text-white mb-1">Location</h4>
-                  <p className="text-slate-400">San Francisco, CA</p>
+                  <p className="text-slate-400">University Park, PA</p>
                 </div>
               </div>
             </div>

@@ -22,35 +22,14 @@ export function About() {
         
         <div className="max-w-3xl mx-auto mb-16">
           <p className="text-lg text-slate-300 mb-6">
-            I'm a passionate software engineer with a strong foundation in computer science and years of experience 
-            building web applications. I love solving complex problems and turning ideas into reality through code.
+            Currently, I serve as a Research Assistant in the Students Space Programs Laboratory (SSPL), where I developed a C++ flight computer integrated with barometric and gyroscopic sensors for a two-stage rocket that successfully launched to 3,000 ft. I’m also contributing to NASA’s LunaRecycle Challenge, optimizing a metal-smelting system for lunar manufacturing using SOLIDWORKS and ANSYS Mechanical.
+          </p>
+          <p className="text-lg text-slate-300 mb-6">
+            As the Vehicle Dynamics Project Manager for Nittany Motorsports, I led lap-time simulation development in ChassisSIM and MATLAB to enhance vehicle setup and performance through data-driven engineering.
           </p>
           <p className="text-lg text-slate-300">
-            My journey in programming started with curiosity and has evolved into a career where I get to work on 
-            challenging projects, collaborate with talented teams, and continuously learn new technologies. 
-            Whether it's frontend, backend, or DevOps, I enjoy working across the full stack.
+            Outside the lab, I build full-stack and embedded systems from a Chrome productivity extension (LockedIn) using React, TypeScript, and Firebase to an AI Satellite Anomaly Detector and real-time 3D Orbit Tracker built with Python, TensorFlow, and PyQt5.
           </p>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {highlights.map((item, index) => {
-            return (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20 transition-all backdrop-blur-sm overflow-hidden">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center mb-4 overflow-hidden" style={{ width: '400px', height: '400px' }}>
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full"
-                        style={{ objectFit: 'cover', objectPosition: 'center' }}
-                      />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
         </div>
       </div>
     </section>
