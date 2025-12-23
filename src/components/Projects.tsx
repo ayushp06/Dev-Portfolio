@@ -18,6 +18,27 @@ export function Projects() {
       technologies: ["Python", "PyQt5", "Skyfield API", "NORAD TLE", "Matplotlib"],
       github: "https://github.com/ayushp06/NASA-TLE-Orbit-Tracker",
       demo: "https://www.linkedin.com/posts/ayushpandejee_im-excited-to-share-an-application-that-activity-7353811791237292032-i5hO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ZqEoBd3W36a8NxexLQ5Qg0weC5SVIP5s"
+    },
+    {
+      title: "My Developer Portfolio",
+      description: "A developer portfolio using React.js to showcase my projects, skills, and experience through a clean, interactive interface. The site is fully responsive, built with reusable components, and deployed on Vercel for fast, reliable performance and seamless updates.",
+      technologies: ["React.js", "Vercel"],
+      github: "https://github.com/ayushp06/Dev-Portfolio",
+      demo: null
+    },
+    {
+      title: "Turbulence Data Logger",
+      description: "A C++ flight computer on a Teensy 4.1, integrating barometric, gyroscopic, and power sensors into a two-stage rocket. The system successfully launched to 3,000 ft, capturing and logging wind speed, altitude, and rotational dynamics throughout ascent.",
+      technologies: ["C++", "Arduino", "SOLIDWORKS", "Fusion 360", "KiCAD"],
+      github: "https://github.com/ayushp06/Turbulence-Data-Logger",
+      demo: null
+    },
+    {
+      title: "Steered Angle Calculator",
+      description: "A MATLAB Script that calculates the steered angle of a vehicle based on its wheelbase, track width, turning radius, and gps_x/gps_y positions.",
+      technologies: ["MATLAB"],
+      github: "https://github.com/ayushp06/Steered-Angle-Calculator",
+      demo: "https://github.com/ayushp06/Steered-Angle-Calculator/blob/main/Example%20in%20MATLAB.png"
     }
   ];
 
