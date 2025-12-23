@@ -6,46 +6,18 @@ import { Button } from "./ui/button";
 export function Projects() {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "https://github.com",
-      demo: "https://example.com"
+      title: "LockedIn Productivity Chrome Extension",
+      description: "A full-stack Chrome extension designed to boost productivity by tracking hours spent on a site and logging them, allowing users to compete with their friends.",
+      technologies: ["React.js", "TypeScript", "FirebaseDB", "Google Clound OAuth", "Chrome APIs"],
+      github: "https://github.com/ayushp06/LockedIn",
+      demo: "https://www.linkedin.com/posts/ayushpandejee_chromeextension-productivity-fullstackdevelopment-activity-7394765228569440256-hXAs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ZqEoBd3W36a8NxexLQ5Qg0weC5SVIP5s"
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task manager with real-time updates, team workspaces, and productivity analytics.",
-      technologies: ["Next.js", "TypeScript", "MongoDB", "Socket.io"],
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
-    {
-      title: "Weather Dashboard",
-      description: "Beautiful weather app with forecasts, interactive maps, and location-based alerts.",
-      technologies: ["Vue.js", "Tailwind", "Weather API"],
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
-    {
-      title: "DevOps Automation Tool",
-      description: "CI/CD pipeline automation tool that streamlines deployment processes and monitors application health.",
-      technologies: ["Python", "Docker", "Kubernetes", "AWS"],
-      github: "https://github.com",
-      demo: null
-    },
-    {
-      title: "Social Media Analytics",
-      description: "Analytics platform for social media metrics with data visualization and reporting features.",
-      technologies: ["React", "D3.js", "Express", "Redis"],
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
-    {
-      title: "AI Chatbot Assistant",
-      description: "Intelligent chatbot using natural language processing for customer support automation.",
-      technologies: ["Python", "TensorFlow", "Flask", "React"],
-      github: "https://github.com",
-      demo: null
+      title: "NASA TLE Satellite Tracker",
+      description: "A PyQt5-based desktop application that visualizes real-time satellite orbits in 3D using active NORAD TLE data through the Skyfield API. It allows users to interactively track the position and altitude of over 50 active satellites.",
+      technologies: ["Python", "PyQt5", "Skyfield API", "NORAD TLE", "Matplotlib"],
+      github: "https://github.com/ayushp06/NASA-TLE-Orbit-Tracker",
+      demo: "https://www.linkedin.com/posts/ayushpandejee_im-excited-to-share-an-application-that-activity-7353811791237292032-i5hO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ZqEoBd3W36a8NxexLQ5Qg0weC5SVIP5s"
     }
   ];
 
