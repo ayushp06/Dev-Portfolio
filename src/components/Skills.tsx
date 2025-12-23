@@ -4,11 +4,11 @@ export function Skills() {
   const skillCategories = [
     {
       category: "Languages",
-      skills: ["Python", "C++", "TypeScript", "HTML/CSS", "JavaScript", "LaTeX"]
+      skills: ["Python", "C++", "Java", "TypeScript", "HTML/CSS", "JavaScript", "LaTeX"]
     },
     {
       category: "Technologies & Frameworks",
-      skills: ["Firebase", "Google Cloud OAuth", "MySQL", "Tailwind CSS", "React.js", "Node.js", "TensorFlow"]
+      skills: ["Firebase", "Google Cloud OAuth", "MySQL", "Tailwind CSS", "React.js", "Docker", "TensorFlow"]
     },
     {
       category: "Software & Tools",
