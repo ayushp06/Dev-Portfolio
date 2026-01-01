@@ -54,7 +54,7 @@ export function Hero() {
             <span className="inline-block h-8 w-[10px] bg-white animate-pulse align-middle" aria-hidden="true"></span>
           </p>
           <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto">
-            I'm an Aerospace Engineering student at Penn State pursuing a minor in Information Sciences & Technology. I'm driven by a passion for aerospace systems, AI, and automation for more efficient technologies.
+            Aerospace Engineering and Information Sciences & Technology at The Pennsylvania State University
           </p>
           <div className="flex gap-4 justify-center mb-12">
             <Button 
