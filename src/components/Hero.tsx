@@ -1,11 +1,46 @@
+import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 import GradientText from "./GradientText";
 
 export function Hero() {
+  const roles = ["Aerospace Engineer", "Software Developer", "Photographer"];
+  const [displayText, setDisplayText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    const atFullText = displayText === currentRole;
+    const atEmpty = displayText === "";
+
+    const baseSpeed = isDeleting ? 40 : 80;
+    const pause = atFullText && !isDeleting ? 1100 : atEmpty && isDeleting ? 200 : baseSpeed;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting && atFullText) {
+        setIsDeleting(true);
+        return;
+      }
+      if (isDeleting && atEmpty) {
+        setIsDeleting(false);
+        setRoleIndex((roleIndex + 1) % roles.length);
+        return;
+      }
+
+      const nextText = isDeleting
+        ? currentRole.slice(0, Math.max(displayText.length - 1, 0))
+        : currentRole.slice(0, displayText.length + 1);
+
+      setDisplayText(nextText);
+    }, pause);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-slate-900">
@@ -14,13 +49,13 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl mb-0 text-white overflow-visible">
             Hi, I'm <GradientText colors={["#a855f7", "#60a5fa", "#a855f7", "#60a5fa", "#a855f7"]} animationSpeed={3}>Ayush Pandejee</GradientText>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 mt-4">
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">Aerospace Engineer & Developer</span>
+          <p className="text-4xl md:text-5xl mb-8 mt-4 text-white font-semibold h-16 md:h-20 flex items-center justify-center gap-2">
+            <span className="inline-block min-w-[18ch] text-center whitespace-nowrap">{displayText}</span>
+            <span className="inline-block h-8 w-[10px] bg-white animate-pulse align-middle" aria-hidden="true"></span>
           </p>
           <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto">
-            I’m an Aerospace Engineering student at Penn State pursuing a minor in Information Sciences & Technology. I'm driven by a passion for aerospace systems, AI, and automation for smarter and more efficient technologies for the next generation of space exploration.
+            I'm an Aerospace Engineering student at Penn State pursuing a minor in Information Sciences & Technology. I'm driven by a passion for aerospace systems, AI, and automation for more efficient technologies.
           </p>
-          
           <div className="flex gap-4 justify-center mb-12">
             <Button 
               size="lg" 
@@ -28,14 +63,6 @@ export function Hero() {
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0"
             >
               View My Work
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={() => scrollToSection("contact")}
-              className="border-purple-500/50 text-purple-200 hover:bg-purple-900/30 hover:border-purple-400"
-            >
-              Get In Touch
             </Button>
           </div>
           

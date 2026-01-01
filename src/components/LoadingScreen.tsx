@@ -321,18 +321,19 @@ export function LoadingScreen({ onLoadingComplete }: { onLoadingComplete: () => 
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(onLoadingComplete, 800);
-    }, 2500);
+    const toFade = setTimeout(() => setFadeOut(true), 2400);
+    const finish = setTimeout(() => onLoadingComplete(), 3100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(toFade);
+      clearTimeout(finish);
+    };
   }, [onLoadingComplete]);
 
   return (
     <div 
-      className={`fixed inset-0 z-50 bg-slate-900 flex items-center justify-center transition-opacity duration-700 ${
-        fadeOut ? 'opacity-0' : 'opacity-100'
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-slate-900 transition-opacity duration-700 ${
+        fadeOut ? "opacity-0" : "opacity-100"
       }`}
     >
       <Loader />

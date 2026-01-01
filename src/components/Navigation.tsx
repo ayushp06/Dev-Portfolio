@@ -22,7 +22,8 @@ export function Navigation() {
   const navLinks = [
     { label: "About", id: "about" },
     { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" }
+    { label: "Projects", id: "projects" },
+    { label: "Photography", id: "photography" }
   ];
 
   return (
@@ -33,7 +34,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent hover:from-purple-300 hover:to-blue-300 transition-all"
+            className="text-xl text-white hover:text-purple-300 transition-all"
           >
             Home
           </button>
@@ -50,12 +51,7 @@ export function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all group-hover:w-full"></span>
               </button>
             ))}
-            <Button 
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0"
-            >
-              Contact Me
-            </Button>
+            {/* Contact button removed per request */}
           </div>
           
           {/* Mobile Menu Button */}
@@ -80,12 +76,7 @@ export function Navigation() {
                   {link.label}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection("contact")}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 w-full"
-              >
-                Contact Me
-              </Button>
+              {/* Contact button removed per request */}
             </div>
           </div>
         )}

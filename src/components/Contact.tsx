@@ -65,8 +65,8 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 bg-slate-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl text-center mb-16">
-          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Get In Touch</span>
+        <h2 className="text-4xl md:text-5xl text-center mb-16 text-white">
+          Get In Touch
         </h2>
         
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
