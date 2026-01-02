@@ -35,7 +35,7 @@ export function About() {
                 onClick={() => setLightboxSrc(item.image)}
                 className="
                   group relative w-full aspect-[4/3]
-                  rounded-2xl
+                  overflow-hidden
                   border border-slate-700
                   bg-slate-800/50
                   hover:bg-slate-700
@@ -44,28 +44,24 @@ export function About() {
                   p-2
                 "
               >
-                {/* Inner frame (rounded + clips image) */}
+                {/* Inner frame (no rounding) */}
                 <div
                   className="
                     h-full w-full
-                    rounded-xl
+                    overflow-hidden
                     border border-white/10
                     bg-slate-950/10
-                    overflow-hidden
                     flex items-center justify-center
+                    transform-gpu
+                    transition-transform duration-500
+                    group-hover:scale-[1.03]
                   "
                 >
                   <img
                     src={item.image}
                     alt={item.alt}
                     loading="lazy"
-                    className="
-                      h-full w-full
-                      object-contain
-                      p-2
-                      transition-transform duration-500
-                      group-hover:scale-[1.03]
-                    "
+                    className="h-full w-full object-contain p-2 block"
                   />
                 </div>
               </button>
@@ -83,23 +79,24 @@ export function About() {
             className="relative max-w-5xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="rounded-2xl border border-slate-700 bg-slate-900/40 p-2 shadow-2xl">
-              <div className="rounded-xl border border-white/10 bg-slate-950/10 overflow-hidden">
+            {/* Lightbox frame (no rounding) */}
+            <div className="overflow-hidden border border-slate-700 bg-slate-900/40 p-2 shadow-2xl">
+              <div className="overflow-hidden border border-white/10 bg-slate-950/10">
                 <img
                   src={lightboxSrc}
                   alt="Enlarged photograph"
-                  className="w-full h-auto max-h-[80vh] object-contain"
+                  className="w-full h-auto max-h-[80vh] object-contain block"
                 />
               </div>
             </div>
 
+            {/* Close button (no rounding) */}
             <button
               type="button"
               onClick={() => setLightboxSrc(null)}
               className="
                 absolute top-6 right-6
                 inline-flex items-center justify-center
-                rounded-xl
                 px-4 py-2
                 text-sm font-medium
                 text-slate-200
