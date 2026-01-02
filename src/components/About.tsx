@@ -2,18 +2,9 @@ import { useState } from "react";
 
 export function About() {
   const highlights = [
-    {
-      image: "/images/DSC02188.JPG",
-      alt: "Friends posing together"
-    },
-    {
-      image: "/images/IMG_4351.JPG",
-      alt: "Sitting in a woven chair indoors"
-    },
-    {
-      image: "/images/IMG_7057.jpg",
-      alt: "Two athletes wearing jiu-jitsu gis"
-    }
+    { image: "/images/DSC02188.JPG", alt: "Friends posing together" },
+    { image: "/images/IMG_4351.JPG", alt: "Sitting in a woven chair indoors" },
+    { image: "/images/IMG_7057.jpg", alt: "Two athletes wearing jiu-jitsu gis" },
   ];
 
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
@@ -24,28 +15,59 @@ export function About() {
         <h2 className="text-4xl md:text-5xl text-center mb-16 text-white">
           About Me
         </h2>
-        
+
         <div className="max-w-3xl mx-auto mb-16">
           <p className="text-lg text-slate-700 mb-6">
-            I attend Penn State as an Aerospace Engineering student with a minor in Information Sciences & Technology. I work part time as a Data Engineer Intern for the School District of Philadelphia. Additionally, I am a Brazilian Jiu-Jitsu athlete and a professional photographer. Scroll below to view my work!
+            I attend Penn State as an Aerospace Engineering student with a minor
+            in Information Sciences & Technology. I work part time as a Data
+            Engineer Intern for the School District of Philadelphia.
+            Additionally, I am a Brazilian Jiu-Jitsu athlete and a professional
+            photographer. Scroll below to view my work!
           </p>
         </div>
 
-        <div className="mt-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="mt-10 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {highlights.map((item, index) => (
               <button
                 key={index}
                 type="button"
-                className="relative block w-full overflow-hidden rounded-lg border border-slate-700 bg-slate-800/50 hover:border-purple-400/40 aspect-[4/5]"
                 onClick={() => setLightboxSrc(item.image)}
+                className="
+                  group relative w-full aspect-[4/3]
+                  rounded-2xl
+                  border border-slate-700
+                  bg-slate-800/50
+                  hover:bg-slate-700
+                  hover:border-purple-500/50
+                  transition-all
+                  p-2
+                "
               >
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                {/* Inner frame (rounded + clips image) */}
+                <div
+                  className="
+                    h-full w-full
+                    rounded-xl
+                    border border-white/10
+                    bg-slate-950/10
+                    overflow-hidden
+                    flex items-center justify-center
+                  "
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="
+                      h-full w-full
+                      object-contain
+                      p-2
+                      transition-transform duration-500
+                      group-hover:scale-[1.03]
+                    "
+                  />
+                </div>
               </button>
             ))}
           </div>
@@ -61,15 +83,34 @@ export function About() {
             className="relative max-w-5xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={lightboxSrc}
-              alt="Enlarged photograph"
-              className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
-            />
+            <div className="rounded-2xl border border-slate-700 bg-slate-900/40 p-2 shadow-2xl">
+              <div className="rounded-xl border border-white/10 bg-slate-950/10 overflow-hidden">
+                <img
+                  src={lightboxSrc}
+                  alt="Enlarged photograph"
+                  className="w-full h-auto max-h-[80vh] object-contain"
+                />
+              </div>
+            </div>
+
             <button
               type="button"
-              className="absolute top-3 right-3 px-3 py-1 text-sm text-white bg-slate-900/80 border border-slate-700 rounded"
               onClick={() => setLightboxSrc(null)}
+              className="
+                absolute top-6 right-6
+                inline-flex items-center justify-center
+                rounded-xl
+                px-4 py-2
+                text-sm font-medium
+                text-slate-200
+                bg-slate-800/60
+                border border-slate-700
+                backdrop-blur
+                hover:bg-slate-700
+                hover:border-purple-500/50
+                transition-all
+                shadow-lg shadow-black/20
+              "
             >
               Close
             </button>
