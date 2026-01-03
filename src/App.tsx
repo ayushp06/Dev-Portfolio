@@ -14,7 +14,7 @@ export default function App() {
   return (
     <>
       {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
-      <div className={`min-h-screen ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
+      <div className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
         <Navigation />
         <Hero />
         <About />
