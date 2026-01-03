@@ -22,13 +22,13 @@ export function Photography() {
   );
 
   return (
-    <section id="photography" className="py-20 bg-slate-900">
+    <section id="photography" className="py-20 bg-slate-900 min-h-screen">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="text-4xl md:text-5xl text-center mb-16 text-white">
+        <h2 className="text-4xl md:text-5xl text-center mb-12 text-white">
           Photography
         </h2>
 
-        <div className="relative h-[1300px] sm:h-[1450px] lg:h-[1550px]">
+        <div className="h-[calc(100vh-180px)] flex items-center justify-center">
           <CircularGallery
             items={galleryItems}
             bend={3}

@@ -265,19 +265,27 @@ class Media {
     }
   }
 
-  onResize({ screen, viewport } = {}) {
+    onResize({ screen, viewport } = {}) {
     if (screen) this.screen = screen;
-    if (viewport) {
-      this.viewport = viewport;
-      if (this.plane.program.uniforms.uViewportSizes) {
-        this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
-      }
-    }
-    this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
-    this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    if (viewport) this.viewport = viewport;
+
+    // Make the image fill most of the visible camera height
+    const targetHeight = this.viewport.height * 0.9; // 90% of screen
+    const imageAspect = this.program.uniforms.uImageSizes.value;
+    const aspectRatio = imageAspect[0] / imageAspect[1] || 1.4;
+
+    const targetWidth = targetHeight * aspectRatio;
+
+    this.plane.scale.y = targetHeight;
+    this.plane.scale.x = targetWidth;
+
+    this.plane.program.uniforms.uPlaneSizes.value = [
+      this.plane.scale.x,
+      this.plane.scale.y,
+    ];
+
+    // spacing between images
+    this.padding = this.plane.scale.x * 0.25;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -328,7 +336,7 @@ class App {
   createCamera() {
     this.camera = new Camera(this.gl);
     this.camera.fov = 45;
-    this.camera.position.z = 20;
+    this.camera.position.z = 30;
   }
 
   createScene() {
@@ -342,7 +350,7 @@ class App {
     });
   }
 
-  createMedias(items, bend = 1, textColor, borderRadius, font) {
+  createMedias(items, bend = 0, textColor, borderRadius, font) {
     const defaultItems = [
       { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: "Bridge" },
       { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: "Desk Setup" },
@@ -502,7 +510,7 @@ class App {
 
 export default function CircularGallery({
   items,
-  bend = 3,
+  bend = 0,
   textColor = "#ffffff",
   borderRadius = 0.05,
   font = "bold 30px Figtree",
