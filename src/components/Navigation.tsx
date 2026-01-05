@@ -23,7 +23,6 @@ export function Navigation() {
     { label: "About", id: "about" },
     { label: "Skills", id: "skills" },
     { label: "Projects", id: "projects" },
-    { label: "Photography", id: "photography" }
   ];
 
   return (

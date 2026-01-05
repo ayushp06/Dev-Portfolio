@@ -21,7 +21,8 @@ export function About() {
             I attend Penn State as an Aerospace Engineering student with a minor
             in Information Sciences & Technology. During my free time, I work part time as a Data
             Engineer Intern for the School District of Philadelphia. Additionally, I am a Brazilian 
-            Jiu-Jitsu athlete and a professional photographer. Scroll below to view my work!
+            Jiu-Jitsu athlete and a professional photographer. Visit my instagram to view my photos
+            and scroll below to view my projects!
           </p>
         </div>
 

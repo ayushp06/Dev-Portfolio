@@ -8,7 +8,7 @@ export function Projects() {
     {
       title: "LockedIn Productivity Chrome Extension",
       description: "A full-stack Chrome extension designed to boost productivity by tracking hours spent on a site and logging them, allowing users to compete with their friends.",
-      technologies: ["React.js", "TypeScript", "FirebaseDB", "Google Clound OAuth", "Chrome APIs"],
+      technologies: ["React.js", "TypeScript", "FirebaseDB", "Google Cloud OAuth", "Chrome APIs"],
       github: "https://github.com/ayushp06/LockedIn",
       demo: "https://www.linkedin.com/posts/ayushpandejee_chromeextension-productivity-fullstackdevelopment-activity-7394765228569440256-hXAs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD8ZqEoBd3W36a8NxexLQ5Qg0weC5SVIP5s"
     },
