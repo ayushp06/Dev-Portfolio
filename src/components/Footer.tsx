@@ -39,7 +39,7 @@ export function Footer() {
               Made By Ayush Pandejee
             </p>
             <p className="text-sm text-slate-500 mt-2">
-              Copyright {currentYear}. All rights reserved.
+              Don't steal my work! Thank you :)
             </p>
           </div>
         </div>
