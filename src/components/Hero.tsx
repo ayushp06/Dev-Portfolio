@@ -49,7 +49,7 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl mb-0 text-white overflow-visible">
             Hi, I'm <GradientText colors={["#a855f7", "#60a5fa", "#a855f7", "#60a5fa", "#a855f7"]} animationSpeed={3}>Ayush Pandejee</GradientText>
           </h1>
-          <p className="text-4xl md:text-5xl mb-8 mt-4 text-white font-semibold h-16 md:h-20 flex items-center justify-center gap-2 w-full text-center translate-x-6 md:translate-x-7">
+          <p className="text-4xl md:text-5xl mb-8 mt-4 text-white font-semibold h-16 md:h-20 flex items-center justify-center w-full text-center">
             <span className="inline-block min-w-[18ch] text-center whitespace-nowrap">{displayText}</span>
             <span className="inline-block h-8 w-[10px] bg-white animate-pulse align-middle" aria-hidden="true"></span>
           </p>
