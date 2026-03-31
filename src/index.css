@@ -39,3 +39,12 @@ body {
 *::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 768px) {
+  html, body, #root {
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

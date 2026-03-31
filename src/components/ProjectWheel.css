@@ -111,3 +111,31 @@
     animation: none;
   }
 }
+
+@media (max-width: 768px) {
+  .wheel-outer {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .wheel-stage {
+    width: 100%;
+    max-width: 350px;
+    height: 440px;
+    margin: 0 auto;
+  }
+
+  .wheel-stage::before {
+    width: 320px;
+    height: 320px;
+  }
+
+  .wheel-hint {
+    display: none;
+  }
+
+  .wheel-dots {
+    bottom: 10px;
+  }
+}
