@@ -1,52 +1,73 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import projects from '../data/projects.js'
 import ProjectCard from './ProjectCard.jsx'
 import './ProjectWheel.css'
 
-const VISIBLE_SLOTS = [-1, 0, 1] // above center, center, below center
-
-function getSlotProps(slot) {
-  // slot: -1 = above, 0 = center, 1 = below
-  if (slot === 0) {
-    return { scale: 1, opacity: 1, translateY: 0, zIndex: 10 }
-  }
-  if (Math.abs(slot) === 1) {
-    return { scale: 0.78, opacity: 0.55, translateY: slot * 230, zIndex: 5 }
-  }
-  return { scale: 0.6, opacity: 0, translateY: slot * 350, zIndex: 1 }
-}
-
 export default function ProjectWheel() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [animating, setAnimating] = useState(false)
-  const wheelRef = useRef(null)
+  const [scrollSnaps, setScrollSnaps] = useState([])
+  const wheelOuterRef = useRef(null)
   const accumulatedDelta = useRef(0)
   const lastScrollTime = useRef(0)
-  const total = projects.length
+  const scrollLockRef = useRef(false)
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    axis: 'y',
+    align: 'center',
+    loop: true,
+  })
 
-  const navigate = useCallback(
-    (dir) => {
-      if (animating) return
-      setAnimating(true)
-      setActiveIndex((prev) => (prev + dir + total) % total)
-      setTimeout(() => setAnimating(false), 420)
+  const onSelect = useCallback((api) => {
+    setActiveIndex(api.selectedScrollSnap())
+  }, [])
+
+  const scrollByDirection = useCallback(
+    (direction) => {
+      if (!emblaApi || scrollLockRef.current) return
+      scrollLockRef.current = true
+      if (direction > 0) {
+        emblaApi.scrollNext()
+      } else {
+        emblaApi.scrollPrev()
+      }
+      window.setTimeout(() => {
+        scrollLockRef.current = false
+      }, 440)
     },
-    [animating, total]
+    [emblaApi]
+  )
+
+  const onDotButtonClick = useCallback(
+    (index) => {
+      if (!emblaApi) return
+      emblaApi.scrollTo(index)
+    },
+    [emblaApi]
   )
 
   useEffect(() => {
-    const el = wheelRef.current
-    if (!el) return
+    if (!emblaApi) return
+    setScrollSnaps(emblaApi.scrollSnapList())
+    onSelect(emblaApi)
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onSelect)
+    }
+  }, [emblaApi, onSelect])
+
+  useEffect(() => {
+    const el = wheelOuterRef.current
+    if (!el || !emblaApi) return
 
     const onWheel = (e) => {
       e.preventDefault()
       const now = Date.now()
-      // Throttle to one navigation per 400ms
-      if (now - lastScrollTime.current < 400) return
+      if (now - lastScrollTime.current < 350) return
       accumulatedDelta.current += e.deltaY
       if (Math.abs(accumulatedDelta.current) > 30) {
-        const dir = accumulatedDelta.current > 0 ? 1 : -1
-        navigate(dir)
+        scrollByDirection(accumulatedDelta.current > 0 ? 1 : -1)
         accumulatedDelta.current = 0
         lastScrollTime.current = now
       }
@@ -54,27 +75,10 @@ export default function ProjectWheel() {
 
     el.addEventListener('wheel', onWheel, { passive: false })
     return () => el.removeEventListener('wheel', onWheel)
-  }, [navigate])
-
-  // Touch support
-  const touchStart = useRef(null)
-  const onTouchStart = (e) => {
-    touchStart.current = e.touches[0].clientY
-  }
-  const onTouchEnd = (e) => {
-    if (touchStart.current === null) return
-    const delta = touchStart.current - e.changedTouches[0].clientY
-    if (Math.abs(delta) > 40) navigate(delta > 0 ? 1 : -1)
-    touchStart.current = null
-  }
+  }, [emblaApi, scrollByDirection])
 
   return (
-    <div
-      className="wheel-outer"
-      ref={wheelRef}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
+    <div className="wheel-outer" ref={wheelOuterRef}>
       <div className="wheel-hint">
         <span className="wheel-hint-arrow">↑</span>
         <span className="wheel-hint-label">scroll</span>
@@ -82,43 +86,29 @@ export default function ProjectWheel() {
       </div>
 
       <div className="wheel-stage">
-        {VISIBLE_SLOTS.map((slot) => {
-          const idx = (activeIndex + slot + total) % total
-          const project = projects[idx]
-          const { scale, opacity, translateY, zIndex } = getSlotProps(slot)
-          const isCenter = slot === 0
-
-          return (
-            <div
-              key={`slot-${slot}`}
-              className="wheel-card-wrapper"
-              style={{
-                transform: `translateY(${translateY}px) scale(${scale})`,
-                opacity,
-                zIndex,
-                transition: 'transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease',
-                pointerEvents: isCenter ? 'auto' : 'none',
-              }}
-            >
-              <ProjectCard project={project} isActive={isCenter} />
-            </div>
-          )
-        })}
+        <div className="wheel-viewport" ref={emblaRef}>
+          <div className="wheel-container">
+            {projects.map((project, index) => (
+              <div
+                key={project.title}
+                className={`wheel-slide ${index === activeIndex ? 'is-selected' : ''}`}
+              >
+                <div className="wheel-card-shell">
+                  <ProjectCard project={project} isActive={index === activeIndex} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="wheel-dots">
-        {projects.map((_, i) => (
+        {scrollSnaps.map((_, index) => (
           <button
-            key={i}
-            className={`wheel-dot ${i === activeIndex ? 'active' : ''}`}
-            onClick={() => {
-              if (!animating) {
-                setAnimating(true)
-                setActiveIndex(i)
-                setTimeout(() => setAnimating(false), 420)
-              }
-            }}
-            aria-label={`Go to project ${i + 1}`}
+            key={index}
+            className={`wheel-dot ${index === activeIndex ? 'active' : ''}`}
+            onClick={() => onDotButtonClick(index)}
+            aria-label={`Go to project ${index + 1}`}
           />
         ))}
       </div>

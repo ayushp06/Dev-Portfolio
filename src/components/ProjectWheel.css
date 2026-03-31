@@ -12,13 +12,11 @@
   width: 100%;
   max-width: 420px;
   height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   animation: wheelStageEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .wheel-stage::before {
-  content: '';
+  content: none;
   position: absolute;
   width: 410px;
   height: 410px;
@@ -28,11 +26,40 @@
   z-index: 0;
   animation: wheelOrbit 18s linear infinite;
 }
-.wheel-card-wrapper {
-  position: absolute;
+
+.wheel-viewport {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.wheel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.wheel-slide {
+  flex: 0 0 100%;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transform: scale(0.9);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
+}
+
+.wheel-slide.is-selected {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wheel-card-shell {
   width: 100%;
   transform-origin: center center;
-  will-change: transform, opacity;
 }
 /* Hint */
 .wheel-hint {
@@ -61,15 +88,17 @@
   text-orientation: mixed;
   transform: rotate(180deg);
 }
+
 /* Dots nav */
 .wheel-dots {
   position: absolute;
-  bottom: 36px;
   left: 50%;
+  bottom: 28px;
   transform: translateX(-50%);
   display: flex;
   gap: 7px;
   align-items: center;
+  z-index: 3;
 }
 .wheel-dot {
   width: 5px;
@@ -107,6 +136,11 @@
   .wheel-stage {
     animation: none;
   }
+
+  .wheel-slide {
+    transition: none;
+  }
+
   .wheel-stage::before {
     animation: none;
   }
@@ -136,6 +170,6 @@
   }
 
   .wheel-dots {
-    bottom: 10px;
+    bottom: 8px;
   }
 }
