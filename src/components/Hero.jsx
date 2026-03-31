@@ -26,17 +26,17 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-line" ref={lineRef} />
         <h1 className="hero-name" ref={nameRef}>
-          Ayush<br />Pandejee
+          Ayush Pandejee
         </h1>
         <p className="hero-desc" ref={descRef}>
-          Aerospace Engineering<br />
-          &amp; Information Sciences<br />
-          and Technology<br />
+          Aerospace Engineering 
+          &amp; Information Sciences
+          and Technology
           <span className="hero-school">Penn State University</span>
         </p>
         <div className="hero-tags" ref={tagsRef}>
           <span className="hero-tag">Engineering</span>
-          <span className="hero-tag">Research</span>
+          <span className="hero-tag">Hardware</span>
           <span className="hero-tag">Software</span>
         </div>
       </div>
