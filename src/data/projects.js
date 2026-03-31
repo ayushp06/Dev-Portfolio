@@ -25,7 +25,7 @@ const projects = [
     category: 'Software · Productivity',
     year: '2025',
     description:
-      'A full-stack Chrome extension designed to boost productivity by tracking hours spent on a site and logging them, allowing users to compete with their friends.',
+      'A full stack Chrome extension designed to boost productivity by tracking hours spent on a site and logging them, allowing users to compete with their friends.',
     tags: ['React.js', 'Typescript', 'Firebase', 'Google OAuth'],
     github: 'https://github.com/ayushp06/LockedIn',
   },
