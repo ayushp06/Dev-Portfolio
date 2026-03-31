@@ -1,6 +1,16 @@
 const projects = [
   {
     id: 1,
+    title: 'Anchor Paper Trading Platform',
+    category: 'Software · Web Development',
+    year: '2026',
+    description:
+      'A beginner friendly paper trading platform developedat the Penn State Hackathon that lets users trade on historical market data (2000 – 2024) and fast-forward time to evaluate performance.',
+    tags: ['React.js', 'Next.js', 'Python', 'yFinance API', 'PostgreSQL', 'Google OAuth'],
+    github: 'https://github.com/ayushp06/anchortrade',
+  },
+  {
+    id: 2,
     title: 'NASA TLE Satellite Tracker',
     category: 'Aerospace · Software',
     year: '2025',
@@ -10,7 +20,7 @@ const projects = [
     github: 'https://github.com/ayushp06/NASA-TLE-Orbit-Tracker',
   },
   {
-    id: 2,
+    id: 3,
     title: 'LockedIn Productivity Chrome Extension',
     category: 'Software · Productivity',
     year: '2025',
@@ -20,40 +30,34 @@ const projects = [
     github: 'https://github.com/ayushp06/LockedIn',
   },
   {
-    id: 3,
-    title: 'Satellite Orbit Determination',
-    category: 'Astrodynamics · Software',
-    year: '2023',
-    description:
-      'Built a Kalman-filter-based orbit determination pipeline ingesting TLE data and ground-station observations to propagate LEO satellite state vectors.',
-    tags: ['Python', 'NumPy', 'Kalman Filter', 'Astrodynamics'],
-  },
-  {
     id: 4,
-    title: 'Airfoil Shape Optimization',
-    category: 'Aerodynamics · ML',
-    year: '2023',
+    title: 'Engineering Portfolio Website',
+    category: 'Software · Web Development',
+    year: '2025',
     description:
-      'Applied Bayesian optimization with a Gaussian Process surrogate model to maximize the lift-to-drag ratio of NACA airfoils across transonic flow regimes.',
-    tags: ['Python', 'scikit-learn', 'XFOIL', 'Optimization'],
+      'A developer portfolio using React.js to showcase my projects, skills, and experience through a clean, interactive interface. The site is fully responsive, built with reusable components, and deployed on Vercel for fast, reliable performance and seamless updates.',
+    tags: ['React.js', 'CSS', 'Vercel'],
+    github: 'https://github.com/ayushp06/Dev-Portfolio/tree/updated-website',
   },
   {
     id: 5,
-    title: 'Structural Health Monitoring',
-    category: 'Structures · Data Science',
-    year: '2023',
+    title: 'Turbulence Data Logger',
+    category: 'Aerospace · Embedded Systems',
+    year: '2024',
     description:
-      'Deployed an LSTM-based anomaly-detection system on vibration sensor data from composite aircraft panels to flag fatigue damage early.',
-    tags: ['PyTorch', 'LSTM', 'Signal Processing', 'Python'],
+      'A C++ flight computer on a Teensy 4.1, integrating barometric, gyroscopic, and power sensors into a two-stage rocket. The system successfully launched to 3,000 ft, capturing and logging wind speed, altitude, and rotational dynamics throughout ascent.',
+    tags: ['C++', 'Teensy 4.1', 'Arduino', 'SOLIDWORKS', 'KiCAD'],
+    github: 'github.com/ayushp06/Turbulence-Data-Logger',
   },
   {
     id: 6,
-    title: 'Rocket Trajectory Simulator',
-    category: 'Propulsion · Software',
-    year: '2022',
+    title: 'Steered Angle Calculator',
+    category: 'Engineering · Software',
+    year: '2024',
     description:
-      'Wrote a 6-DOF rocket trajectory simulator accounting for variable mass, aerodynamic drag, and wind shear, validated against OpenRocket benchmarks.',
-    tags: ['MATLAB', 'Python', '6-DOF', 'Propulsion'],
+      'A MATLAB Script that calculates the steered angle of a vehicle based on its wheelbase, track width, turning radius, and gps_x/gps_y positions.',
+    tags: ['MATLAB'],
+    github: 'https://github.com/ayushp06/Steered-Angle-Calculator',
   },
 ]
 
