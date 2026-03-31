@@ -1,0 +1,101 @@
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 32px 30px 26px;
+  box-shadow: 0 4px 24px var(--card-shadow);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+  width: 100%;
+  cursor: default;
+}
+
+.project-card--active {
+  box-shadow: 0 8px 48px var(--card-shadow-hover);
+  border-color: #c8c4be;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+
+.card-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.card-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.65rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.card-divider {
+  width: 28px;
+  height: 1px;
+  background: var(--divider);
+  margin-bottom: 16px;
+}
+
+.card-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 22px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.card-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+  padding: 3px 9px;
+  border-radius: 2px;
+  background: var(--bg);
+}
+
+.card-footer {
+  border-top: 1px solid var(--card-border);
+  padding-top: 16px;
+}
+
+.card-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card--active .card-cta {
+  opacity: 1;
+}

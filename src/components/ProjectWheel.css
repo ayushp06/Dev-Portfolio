@@ -1,0 +1,83 @@
+.wheel-outer {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.wheel-stage {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-card-wrapper {
+  position: absolute;
+  width: 100%;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Hint */
+.wheel-hint {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.3;
+  user-select: none;
+}
+
+.wheel-hint-arrow {
+  font-size: 0.7rem;
+  color: var(--text-primary);
+}
+
+.wheel-hint-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Dots nav */
+.wheel-dots {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.wheel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--divider);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.wheel-dot.active {
+  background: var(--text-primary);
+  transform: scale(1.4);
+}
