@@ -1,21 +1,23 @@
 const projects = [
   {
     id: 1,
-    title: 'Autonomous UAV Navigation',
-    category: 'Aerospace · Robotics',
-    year: '2024',
+    title: 'NASA TLE Satellite Tracker',
+    category: 'Aerospace · Software',
+    year: '2025',
     description:
-      'Developed path-planning algorithms for autonomous UAV navigation in GPS-denied environments using LiDAR sensor fusion and ROS2 middleware.',
-    tags: ['C++', 'ROS2', 'LiDAR', 'Python'],
+      'A PyQt5-based desktop application that visualizes real-time satellite orbits in 3D using active NORAD TLE data through the Skyfield API. It allows users to interactively track the position and altitude of over 50 active satellites.',
+    tags: ['Python', 'PyQt5', 'Skyfield', 'NORAD TLE', 'Matplotlib'],
+    github: 'https://github.com/ayushp06/NASA-TLE-Orbit-Tracker',
   },
   {
     id: 2,
-    title: 'Hypersonic Boundary Layer Analysis',
-    category: 'Aerodynamics · CFD',
-    year: '2024',
+    title: 'LockedIn Productivity Chrome Extension',
+    category: 'Software · Productivity',
+    year: '2025',
     description:
-      'Simulated hypersonic boundary-layer transition at Mach 6 using OpenFOAM, investigating laminar-to-turbulent transition mechanisms on wedge geometries.',
-    tags: ['OpenFOAM', 'MATLAB', 'CFD', 'Python'],
+      'A full-stack Chrome extension designed to boost productivity by tracking hours spent on a site and logging them, allowing users to compete with their friends.',
+    tags: ['React.js', 'Typescript', 'Firebase', 'Google OAuth'],
+    github: 'https://github.com/ayushp06/LockedIn',
   },
   {
     id: 3,

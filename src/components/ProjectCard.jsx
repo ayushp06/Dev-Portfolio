@@ -22,7 +22,18 @@ export default function ProjectCard({ project, isActive }) {
       </div>
 
       <div className="card-footer">
-        <span className="card-cta">View Project →</span>
+        {project.github ? (
+          <a
+            className="card-cta"
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Project →
+          </a>
+        ) : (
+          <span className="card-cta">View Project →</span>
+        )}
       </div>
     </div>
   )

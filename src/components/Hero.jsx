@@ -34,11 +34,6 @@ export default function Hero() {
           and Technology
           <span className="hero-school">Penn State University</span>
         </p>
-        <div className="hero-tags" ref={tagsRef}>
-          <span className="hero-tag">Engineering</span>
-          <span className="hero-tag">Hardware</span>
-          <span className="hero-tag">Software</span>
-        </div>
       </div>
     </div>
   )
