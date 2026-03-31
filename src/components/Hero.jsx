@@ -29,11 +29,9 @@ export default function Hero() {
           Ayush Pandejee
         </h1>
         <p className="hero-desc" ref={descRef}>
-          Aerospace Engineering 
-          &amp; Information Sciences
-          and Technology
-          <span className="hero-school">Penn State University</span>
+          Aerospace Engineering &amp; Information Sciences and Technology
         </p>
+        <p className="hero-school">Penn State University</p>
       </div>
     </div>
   )
