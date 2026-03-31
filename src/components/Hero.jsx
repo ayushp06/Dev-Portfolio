@@ -5,10 +5,10 @@ export default function Hero() {
   const nameRef = useRef(null)
   const descRef = useRef(null)
   const lineRef = useRef(null)
-  const tagsRef = useRef(null)
+  const schoolRef = useRef(null)
 
   useEffect(() => {
-    const els = [lineRef.current, nameRef.current, descRef.current, tagsRef.current]
+    const els = [lineRef.current, nameRef.current, descRef.current, schoolRef.current]
     els.forEach((el, i) => {
       if (!el) return
       el.style.opacity = '0'
@@ -31,7 +31,7 @@ export default function Hero() {
         <p className="hero-desc" ref={descRef}>
           Aerospace Engineering &amp; Information Sciences and Technology
         </p>
-        <p className="hero-school">Penn State University</p>
+        <p className="hero-school" ref={schoolRef}>Penn State University</p>
       </div>
     </div>
   )
