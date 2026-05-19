@@ -5,8 +5,8 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  padding: 0 4vw 0 8vw;
-  gap: 0;
+  padding: 0 8vw 0 12vw;
+  gap: 4vw;
 }
 
 @media (max-width: 1024px) {

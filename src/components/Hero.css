@@ -2,10 +2,9 @@
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  width: 38%;
-  min-width: 300px;
+  width: 42%;
+  min-width: 320px;
   height: 100vh;
-  padding-right: 4vw;
 }
 
 .hero-inner {
