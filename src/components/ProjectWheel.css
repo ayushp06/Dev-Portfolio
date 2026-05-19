@@ -141,8 +141,16 @@
   .wheel-stage {
     width: 100%;
     max-width: 350px;
-    height: 440px;
+    height: 400px;
     margin: 0 auto;
+  }
+
+  .wheel-card-shell {
+    transform: scale(0.85);
+  }
+
+  .wheel-slide.is-selected .wheel-card-shell {
+    transform: scale(1);
   }
 
   .wheel-hint {
@@ -150,6 +158,7 @@
   }
 
   .wheel-dots {
-    bottom: 8px;
+    bottom: 0px;
+    gap: 5px;
   }
 }
