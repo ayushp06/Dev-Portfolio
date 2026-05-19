@@ -1,6 +1,26 @@
 const projects = [
   {
     id: 1,
+    title: 'CAD-Ops CLI',
+    category: 'Software · CLI',
+    year: '2026',
+    description:
+      'A Git-inspired version control and collaboration platform for CAD workflows, enabling engineers to track geometry changes, manage design history, compare revisions, and streamline hardware development pipelines. ',
+    tags: ['Git', 'Git-LFS', 'Go', 'SOLIDWORKS', 'CLI'],
+    github: 'https://github.com/ayushp06/cadops',
+  },
+  {
+    id: 2,
+    title: 'LEO Satellite Simulation',
+    category: 'Unity · VR Simulation',
+    year: '2026',
+    description:
+      'A real-time orbital mechanics and satellite visualization platform for simulating, tracking, and interacting with objects in Earth orbit using live TLE and physics-based propagation models. ',
+    tags: ['Unity', 'C#'],
+    github: 'https://github.com/ayushp06/OrbitSim',
+  },
+  {
+    id: 3,
     title: 'Anchor Paper Trading Platform',
     category: 'Software · Web Development',
     year: '2026',
@@ -10,7 +30,7 @@ const projects = [
     github: 'https://github.com/ayushp06/anchortrade',
   },
   {
-    id: 2,
+    id: 4,
     title: 'NASA TLE Satellite Tracker',
     category: 'Aerospace · Software',
     year: '2025',
@@ -20,7 +40,7 @@ const projects = [
     github: 'https://github.com/ayushp06/NASA-TLE-Orbit-Tracker',
   },
   {
-    id: 3,
+    id: 5,
     title: 'LockedIn Productivity Chrome Extension',
     category: 'Software · Productivity',
     year: '2025',
@@ -30,7 +50,7 @@ const projects = [
     github: 'https://github.com/ayushp06/LockedIn',
   },
   {
-    id: 4,
+    id: 6,
     title: 'Engineering Portfolio Website',
     category: 'Software · Web Development',
     year: '2025',
@@ -40,7 +60,7 @@ const projects = [
     github: 'https://github.com/ayushp06/Dev-Portfolio/tree/updated-website',
   },
   {
-    id: 5,
+    id: 7,
     title: 'Turbulence Data Logger',
     category: 'Aerospace · Embedded Systems',
     year: '2024',
@@ -50,7 +70,7 @@ const projects = [
     github: 'github.com/ayushp06/Turbulence-Data-Logger',
   },
   {
-    id: 6,
+    id: 8,
     title: 'Steered Angle Calculator',
     category: 'Engineering · Software',
     year: '2024',
