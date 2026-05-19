@@ -82,16 +82,16 @@
 
   .hero-name {
     font-size: clamp(2.35rem, 12vw, 3.3rem);
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
 
   .hero-desc {
     max-width: 42ch;
     white-space: normal;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .hero-school {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 }
