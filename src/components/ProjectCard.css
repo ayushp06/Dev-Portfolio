@@ -99,3 +99,38 @@
 .project-card--active .card-cta {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 24px 22px 20px;
+  }
+
+  .card-header {
+    margin-bottom: 14px;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .card-desc {
+    font-size: 0.65rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .card-tags {
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .card-tag {
+    font-size: 0.52rem;
+    padding: 2px 7px;
+  }
+
+  .card-footer {
+    padding-top: 14px;
+  }
+}
