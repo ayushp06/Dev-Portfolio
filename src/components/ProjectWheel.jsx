@@ -9,7 +9,6 @@ export default function ProjectWheel() {
   const [scrollSnaps, setScrollSnaps] = useState([])
   const wheelOuterRef = useRef(null)
   const accumulatedDelta = useRef(0)
-  const lastScrollTime = useRef(0)
   const scrollLockRef = useRef(false)
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: 'y',
@@ -30,9 +29,10 @@ export default function ProjectWheel() {
       } else {
         emblaApi.scrollPrev()
       }
+      // Synced with CSS transition duration (0.45s)
       window.setTimeout(() => {
         scrollLockRef.current = false
-      }, 440)
+      }, 450)
     },
     [emblaApi]
   )
@@ -63,13 +63,17 @@ export default function ProjectWheel() {
 
     const onWheel = (e) => {
       e.preventDefault()
-      const now = Date.now()
-      if (now - lastScrollTime.current < 350) return
+      
+      // If we are currently locked, ignore the wheel input
+      if (scrollLockRef.current) {
+        accumulatedDelta.current = 0
+        return
+      }
+
       accumulatedDelta.current += e.deltaY
       if (Math.abs(accumulatedDelta.current) > 30) {
         scrollByDirection(accumulatedDelta.current > 0 ? 1 : -1)
         accumulatedDelta.current = 0
-        lastScrollTime.current = now
       }
     }
 
